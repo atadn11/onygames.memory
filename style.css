@@ -1,0 +1,141 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.game-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 95%;
+    max-width: 900px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.score-board {
+    margin-bottom: 25px;
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+}
+
+.score-board span {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.game-board {
+    display: grid;
+    gap: 10px; /* فاصله بین کارت‌ها */
+    margin-bottom: 30px;
+    perspective: 1000px; /* برای افکت چرخش سه‌بعدی */
+    width: 100%;
+    max-width: 600px; /* حداکثر عرض برای ناحیه گرید */
+    margin-left: auto;
+    margin-right: auto;
+    /* تنظیمات زیر برای اطمینان از مربع بودن سلول‌ها */
+    grid-auto-rows: min-content; /* ارتفاع خودکار بر اساس محتوا */
+}
+
+.card {
+    width: 100%; /* 100% از عرض سلول گرید */
+    height: 100%; /* 100% از ارتفاع سلول گرید */
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    cursor: pointer;
+    background-color: #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* این بخش باعث می‌شود کارت‌ها مربع شکل باشند */
+.card::before {
+    content: '';
+    display: block;
+    padding-top: 100%; /* نسبت 1:1 برای مربع */
+}
+
+.card.flipped {
+    transform: rotateY(180deg); /* چرخش برای نمایش رو */
+}
+
+.card .face,
+.card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* مخفی کردن پشت کارت وقتی رو است */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-size: 1.5em; */ /* اندازه قبلی */
+    font-size: 2.5em; /* اندازه بزرگتر برای آیکون‌ها */
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 5px;
+
+    /* مهم برای نمایش صحیح فونت آیکون‌ها */
+    font-family: "Font Awesome 6 Free"; /* یا نسخه Font Awesome که استفاده می‌کنید */
+    font-weight: 900; /* برای آیکون‌های solid (fas) */
+}
+
+.card .back {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.card .face {
+    background-color: #ffffff;
+    transform: rotateY(180deg); /* از ابتدا چرخانده شده */
+    color: #333; /* رنگ آیکون */
+}
+
+/* استایل برای کارت‌های مطابق */
+.card.matched .back,
+.card.matched .face {
+    background-color: #28a745; /* سبز */
+    color: white;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1em;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 1.1em;
+    min-height: 1.5em;
+    padding: 5px;
+}

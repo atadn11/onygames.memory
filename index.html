@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بازی حافظه - سطوح بی نهایت</title>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>بازی حافظه</h1>
+        <div class="score-board">
+            سطح فعلی: <span id="current-level">1</span>
+            <br>
+            تعداد جفت‌های پیدا شده: <span id="pairs-found">0</span> / <span id="total-pairs"></span>
+            <br>
+            تعداد کل حرکات: <span id="moves">0</span>
+        </div>
+        <div id="gameBoard" class="game-board">
+            <!-- کارت‌ها اینجا با جاوا اسکریپت اضافه می‌شوند -->
+        </div>
+        <!-- دکمه شروع مجدد حذف شد -->
+        <div id="message" class="message"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
